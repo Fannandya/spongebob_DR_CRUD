@@ -145,6 +145,7 @@
             // cmbJK
             // 
             cmbJK.FormattingEnabled = true;
+            cmbJK.Items.AddRange(new object[] { "P", "L" });
             cmbJK.Location = new Point(178, 127);
             cmbJK.Name = "cmbJK";
             cmbJK.Size = new Size(151, 28);
