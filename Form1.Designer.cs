@@ -44,6 +44,7 @@
             label6 = new Label();
             btnInsert = new Button();
             btnUpdate = new Button();
+            btnDelete = new Button();
             SuspendLayout();
             // 
             // btnLoad
@@ -184,11 +185,21 @@
             btnUpdate.UseVisualStyleBackColor = true;
             btnUpdate.Click += btnUpdate_Click;
             // 
+            // btnDelete
+            // 
+            btnDelete.Location = new Point(498, 245);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(112, 42);
+            btnDelete.TabIndex = 16;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnDelete);
             Controls.Add(btnUpdate);
             Controls.Add(btnInsert);
             Controls.Add(label6);
@@ -229,5 +240,6 @@
         private Label label6;
         private Button btnInsert;
         private Button btnUpdate;
+        private Button btnDelete;
     }
 }
