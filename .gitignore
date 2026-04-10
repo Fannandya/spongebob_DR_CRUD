@@ -1,0 +1,10 @@
+﻿# Visual Studio temp folders
+.vs/
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+
+# Database temp files (buat PABD biasanya muncul)
+*.mdf
+*.ldf
