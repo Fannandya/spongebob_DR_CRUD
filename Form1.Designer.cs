@@ -43,6 +43,7 @@
             dtpTanggalLahir = new DateTimePicker();
             label6 = new Label();
             btnInsert = new Button();
+            btnUpdate = new Button();
             SuspendLayout();
             // 
             // btnLoad
@@ -173,11 +174,22 @@
             btnInsert.UseVisualStyleBackColor = true;
             btnInsert.Click += btnInsert_Click;
             // 
+            // btnUpdate
+            // 
+            btnUpdate.Location = new Point(498, 191);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(112, 41);
+            btnUpdate.TabIndex = 15;
+            btnUpdate.Text = "Update";
+            btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnUpdate);
             Controls.Add(btnInsert);
             Controls.Add(label6);
             Controls.Add(dtpTanggalLahir);
@@ -216,5 +228,6 @@
         private DateTimePicker dtpTanggalLahir;
         private Label label6;
         private Button btnInsert;
+        private Button btnUpdate;
     }
 }

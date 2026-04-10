@@ -1,7 +1,5 @@
 using System;
 using System.Data.SqlClient;
-using System.Data.SqlTypes;
-using System.Drawing.Text;
 using System.Windows.Forms;
 
 namespace CRUDMahasiswaADO
@@ -10,15 +8,10 @@ namespace CRUDMahasiswaADO
     public partial class Form1 : Form
     {
         private readonly SqlConnection conn;
-        private readonly String connectionString = "Data Source=tomiskibidi\\TAMA;Initial Catalog=DBAkademikADO;Integrated Security=True";
+        private readonly string connectionString = "Data Source=tomiskibidi\\TAMA;Initial Catalog=DBAkademikADO;Integrated Security=True";
 
 
         public Form1()
-        {
-            InitializeComponent();
-        }
-
-        public FormMahasiswa()
         {
             InitializeComponent();
             conn = new SqlConnection(connectionString);
@@ -28,9 +21,9 @@ namespace CRUDMahasiswaADO
         {
             try
             {
-                if (Conn.State == System.Data.ConnectionState.Closed)
+                if (conn.State == System.Data.ConnectionState.Closed)
                 {
-                    Conn.Open();
+                    conn.Open();
                 }
 
                 MessageBox.Show("Koneksi Berhasil");
@@ -53,9 +46,9 @@ namespace CRUDMahasiswaADO
         {
             try
             {
-                if (Conn.State == System.Data.ConnectionState.Closed)
+                if (conn.State == System.Data.ConnectionState.Closed)
                 {
-                    Conn.Open();
+                    conn.Open();
                 }
 
                 dataGridView1.Rows.Clear();
@@ -70,7 +63,7 @@ namespace CRUDMahasiswaADO
 
                 string query = "SELECT * FROM Mahasiswa";
 
-                SqlCommand cmd = new SqlCommand(query, Conn);
+                SqlCommand cmd = new SqlCommand(query, conn);
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
@@ -98,9 +91,9 @@ namespace CRUDMahasiswaADO
         {
             try
             {
-                if (Conn.State == System.Data.ConnectionState.Closed)
+                if (conn.State == System.Data.ConnectionState.Closed)
                 {
-                    Conn.Open();
+                    conn.Open();
                 }
 
                 if (txtNIM.Text == "")
@@ -157,6 +150,51 @@ namespace CRUDMahasiswaADO
                 else
                 {
                     MessageBox.Show("Gagal menambahkan data");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (conn.State == System.Data.ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+
+                string query = @"UPDATE Mahasiswa SET 
+                                Nama = @Nama, 
+                                JenisKelamin = @JenisKelamin, 
+                                TanggalLahir = @TanggalLahir, 
+                                Alamat = @Alamat, 
+                                KodeProdi = @KodeProdi 
+                                WHERE NIM = @NIM";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.AddWithValue("@NIM", txtNIM.Text);
+                cmd.Parameters.AddWithValue("@Nama", txtNama.Text);
+                cmd.Parameters.AddWithValue("@JenisKelamin", cmbJK.Text);
+                cmd.Parameters.AddWithValue("@TanggalLahir", dtpTanggalLahir.Value.Date);
+                cmd.Parameters.AddWithValue("@Alamat", txtAlamat.Text);
+                cmd.Parameters.AddWithValue("@KodeProdi", txtKodeProdi.Text);
+
+                int result = cmd.ExecuteNonQuery();
+
+                if (result > 0)
+                {
+                    MessageBox.Show("Data berhasil diupdate");
+                    ClearForm();
+                    btnLoad.PerformClick();
+                }
+                else
+                {
+                    MessageBox.Show("Gagal mengupdate data");
                 }
             }
             catch (Exception ex)
