@@ -45,11 +45,13 @@
             btnInsert = new Button();
             btnUpdate = new Button();
             btnDelete = new Button();
+            dataGridView1 = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // btnLoad
             // 
-            btnLoad.Location = new Point(498, 88);
+            btnLoad.Location = new Point(39, 405);
             btnLoad.Name = "btnLoad";
             btnLoad.Size = new Size(112, 33);
             btnLoad.TabIndex = 0;
@@ -59,7 +61,7 @@
             // 
             // btnConnect
             // 
-            btnConnect.Location = new Point(498, 36);
+            btnConnect.Location = new Point(178, 404);
             btnConnect.Name = "btnConnect";
             btnConnect.Size = new Size(112, 34);
             btnConnect.TabIndex = 1;
@@ -167,9 +169,9 @@
             // 
             // btnInsert
             // 
-            btnInsert.Location = new Point(498, 135);
+            btnInsert.Location = new Point(40, 283);
             btnInsert.Name = "btnInsert";
-            btnInsert.Size = new Size(112, 37);
+            btnInsert.Size = new Size(112, 42);
             btnInsert.TabIndex = 14;
             btnInsert.Text = "Insert";
             btnInsert.UseVisualStyleBackColor = true;
@@ -177,9 +179,9 @@
             // 
             // btnUpdate
             // 
-            btnUpdate.Location = new Point(498, 191);
+            btnUpdate.Location = new Point(178, 283);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(112, 41);
+            btnUpdate.Size = new Size(112, 42);
             btnUpdate.TabIndex = 15;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = true;
@@ -187,7 +189,7 @@
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(498, 245);
+            btnDelete.Location = new Point(316, 283);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(112, 42);
             btnDelete.TabIndex = 16;
@@ -195,11 +197,21 @@
             btnDelete.UseVisualStyleBackColor = true;
             btnDelete.Click += btnDelete_Click;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(434, 12);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(354, 426);
+            dataGridView1.TabIndex = 17;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(dataGridView1);
             Controls.Add(btnDelete);
             Controls.Add(btnUpdate);
             Controls.Add(btnInsert);
@@ -219,6 +231,7 @@
             Controls.Add(btnLoad);
             Name = "Form1";
             Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -242,5 +255,6 @@
         private Button btnInsert;
         private Button btnUpdate;
         private Button btnDelete;
+        private DataGridView dataGridView1;
     }
 }
