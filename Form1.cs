@@ -1,5 +1,6 @@
 using System;
 using System.Data.SqlClient;
+using System.Drawing.Text;
 using System.Windows.Forms;
 
 namespace CRUDMahasiswaADO
@@ -40,7 +41,7 @@ namespace CRUDMahasiswaADO
         }
 
 
-        
+
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
@@ -74,11 +75,11 @@ namespace CRUDMahasiswaADO
                 while (reader.Read())
                 {
                     dataGridView1.Rows.Add(
-                        reader["NIM"].ToString(), 
-                        reader["Nama"].ToString(), 
-                        reader["JenisKelamin"].ToString(), 
-                        Convert.ToDateTime(reader["TanggalLahir"]).ToString("yyyy-MM-dd"), 
-                        reader["Alamat"].ToString(), 
+                        reader["NIM"].ToString(),
+                        reader["Nama"].ToString(),
+                        reader["JenisKelamin"].ToString(),
+                        Convert.ToDateTime(reader["TanggalLahir"]).ToString("yyyy-MM-dd"),
+                        reader["Alamat"].ToString(),
                         reader["KodeProdi"].ToString()
                         );
                 }
@@ -90,5 +91,45 @@ namespace CRUDMahasiswaADO
             {
                 MessageBox.Show("Gagal memuat data: " + ex.Message);
             }
+        }
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Conn.State == System.Data.ConnectionState.Closed)
+                {
+                    Conn.Open();
+                }
+
+                if (txtNIM.Text == "")
+                {
+                    MessageBox.Show("NIM harus diisi");
+                    txtNIM.Focus();
+                    return;
+                }
+
+                if (txtNama.Text == "")
+                {
+                    MessageBox.Show("Nama harus diisi");
+                    txtNama.Focus();
+                    return;
+                }
+
+                if (cmbJK.Text == "")
+                {
+                    MessageBox.Show("Jenis Kelamin harus dipilih");
+                    cmbJK.Focus();
+                    return;
+                }
+
+                if (txtKodeProdi.Text == "")
+                {
+                    MessageBox.Show("kode prodi harus diisi");
+                    txtKodeProdi.Focus();
+                    return;
+                }
+            }
+        }
     }
 }

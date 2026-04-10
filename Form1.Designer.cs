@@ -42,9 +42,7 @@
             cmbJK = new ComboBox();
             dtpTanggalLahir = new DateTimePicker();
             label6 = new Label();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            btnInsert = new Button();
             SuspendLayout();
             // 
             // btnLoad
@@ -165,41 +163,22 @@
             label6.TabIndex = 13;
             label6.Text = "Kode Prodi";
             // 
-            // button1
+            // btnInsert
             // 
-            button1.Location = new Point(498, 135);
-            button1.Name = "button1";
-            button1.Size = new Size(112, 30);
-            button1.TabIndex = 14;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(498, 185);
-            button2.Name = "button2";
-            button2.Size = new Size(112, 30);
-            button2.TabIndex = 15;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(498, 236);
-            button3.Name = "button3";
-            button3.Size = new Size(112, 29);
-            button3.TabIndex = 16;
-            button3.Text = "button3";
-            button3.UseVisualStyleBackColor = true;
+            btnInsert.Location = new Point(498, 135);
+            btnInsert.Name = "btnInsert";
+            btnInsert.Size = new Size(112, 37);
+            btnInsert.TabIndex = 14;
+            btnInsert.Text = "Insert";
+            btnInsert.UseVisualStyleBackColor = true;
+            btnInsert.Click += btnInsert_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnInsert);
             Controls.Add(label6);
             Controls.Add(dtpTanggalLahir);
             Controls.Add(cmbJK);
@@ -236,8 +215,6 @@
         private ComboBox cmbJK;
         private DateTimePicker dtpTanggalLahir;
         private Label label6;
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private Button btnInsert;
     }
 }
